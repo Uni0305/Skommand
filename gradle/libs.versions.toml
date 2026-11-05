@@ -1,0 +1,15 @@
+[versions]
+kotlin = "2.4.21"
+minecraft = "26.3"
+skript = "2.17.1"
+
+[libraries]
+mockbukkit = { module = "org.mockbukkit.mockbukkit:mockbukkit-v26.3", version = "4.119.0" }
+paper-api = { module = "io.papermc.paper:paper-api", version = "26.3.build.+" }
+skript = { module = "com.github.SkriptLang:Skript", version.ref = "skript" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+resource-factory-paper = { id = "xyz.jpenilla.resource-factory-paper-convention", version = "1.4.0" }
+run-paper = { id = "xyz.jpenilla.run-paper", version = "3.1.0" }
+shadow = { id = "com.gradleup.shadow", version = "9.6.1" }
