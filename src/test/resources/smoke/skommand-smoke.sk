@@ -1,0 +1,80 @@
+# Copy to run/plugins/Skript/scripts/ and run the commands listed in docs of each section from the console.
+
+# /sk_text hello big  world
+bukkit command /sk_text <text>:
+	description: Echoes text
+	aliases: /sk_t
+	trigger:
+		send "TEXT=[%arg-1%] sender=%sender% full=[%full command%] cmd=[%command%]" to console
+
+# /sk_named a  |  /sk_named a 3  |  /sk_named "a b" 3
+bukkit command /sk_named <a: text> [<n: number = 7>]:
+	trigger:
+		send "NAMED a=[%{_a}%] n=[%{_n}%] arg2=[%arg-2%]" to console
+
+# /sk_choice set x  |  /sk_choice get x  |  /sk_choice nope x
+bukkit command /sk_choice (set|get) <text>:
+	trigger:
+		send "CHOICE=[%choice argument%] text=[%arg-1%]" to console
+
+# /sk_range 5  |  /sk_range 50
+bukkit command /sk_range <number from 1 to 10>:
+	usage: SK_RANGE_USAGE
+	trigger:
+		send "RANGE=[%arg-1%]" to console
+
+# /sk_ents @e[type=minecraft:armor_stand]  |  /sk_ents nonsense
+bukkit command /sk_ents <ents: entities>:
+	trigger:
+		send "ENTS=[%size of {_ents::*}%,%arg-1%]" to console
+
+# /sk_one @e[type=minecraft:armor_stand,limit=1]  |  /sk_one @e
+bukkit command /sk_one <entity>:
+	trigger:
+		send "ONE=[%arg-1%]" to console
+
+# rejected from the console
+bukkit command /sk_players:
+	executable by: players
+	trigger:
+		send "PLAYERS_ONLY_RAN" to console
+
+# /sk_fail
+bukkit command /sk_fail:
+	trigger:
+		fail command execution with error "SK_FAIL_MESSAGE"
+		send "AFTER_FAIL_RAN" to console
+
+# /sk_perm  (the console has every permission)
+bukkit command /sk_perm:
+	permission: skommand.smoke
+	permission message: SK_NO_PERMISSION
+	cooldown: 5 seconds
+	cooldown message: SK_COOLDOWN %remaining time%
+	cooldown bypass: skommand.smoke.bypass
+	trigger:
+		send "PERM_RAN cooldown=%cooldown time%" to console
+
+# /sk_prefixed  |  /sk_custom:sk_prefixed
+bukkit command /sk_prefixed:
+	prefix: sk_custom
+	trigger:
+		send "PREFIXED_RAN" to console
+
+# /version must keep working, /skript:version is this one
+bukkit command /version:
+	trigger:
+		send "TAKEN_NAME_RAN" to console
+
+bukkit command /sk_suggest <a: text> <b: text>:
+	suggestions:
+		set suggestions of arg-1 to "alpha" and "beta"
+		if arg-1 is set:
+			set suggestions of arg-2 to "second-%arg-1%"
+	trigger:
+		send "SUGGEST a=%arg-1% b=%arg-2%" to console
+
+# Skript's own command must keep working next to these.
+command /sk_native <text>:
+	trigger:
+		send "NATIVE=[%arg-1%]" to console

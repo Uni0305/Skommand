@@ -1,0 +1,23 @@
+# Every structure here must fail to load with a clear error.
+bukkit command /sk_text <text>:
+	trigger:
+		stop
+
+bukkit command /sk_native:
+	trigger:
+		stop
+
+bukkit command /sk_bad_type <nonsense type>:
+	trigger:
+		stop
+
+bukkit command /sk_bad_literal lit<text>:
+	trigger:
+		stop
+
+bukkit command /sk_no_trigger:
+	description: nothing
+
+bukkit command /sk_bad_arg:
+	trigger:
+		send arg-1 to console
