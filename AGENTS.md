@@ -55,4 +55,4 @@ Skript internals can change in any minor version, so `SkommandPlugin` disables i
 
 - Keep user-visible strings in sync with the docs: the Troubleshooting tables in `docs/bukkit-command.md` quote load errors and warnings verbatim.
 - `paper-plugin.yml` is generated from the `paperPluginYaml` block in `build.gradle.kts`.
-- Pushing a `v*` tag publishes a GitHub release. The workflow does not derive the version from the tag, so set `version` in `build.gradle.kts` first to give the jar the right name.
+- Pushing a `v*` tag publishes a GitHub release from the `release` job in `ci.yml`, using the jar the `build` job built and tested. The workflow does not derive the version from the tag, so set `version` in `build.gradle.kts` first to give the jar the right name.
