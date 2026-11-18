@@ -49,6 +49,8 @@ Skript internals can change in any minor version, so `SkommandPlugin` disables i
 - Skript: `SUPPORTED_MINOR` in `SkommandPlugin.kt`, `skript` in `gradle/libs.versions.toml`, the version in `README.md` and `docs/bukkit-command.md`.
 - Minecraft: `minecraft`, the `mockbukkit-v26.3` module and the `paper-api` version in `gradle/libs.versions.toml`, the version in `README.md` and `docs/bukkit-command.md`.
 
+`paper-api` is pinned to an exact build, not `26.3.build.+`: a new Paper build can add registry keys that MockBukkit does not know yet, and `MockBukkit.mock()` then throws `InternalDataLoadException ... MockBukkit / MC version mismatch?`. Move to a newer build only once the tests pass against it.
+
 ## Conventions
 
 - Keep user-visible strings in sync with the docs: the Troubleshooting tables in `docs/bukkit-command.md` quote load errors and warnings verbatim.
