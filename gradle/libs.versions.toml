@@ -4,7 +4,7 @@ minecraft = "26.3"
 skript = "2.17.1"
 
 [libraries]
-mockbukkit = { module = "org.mockbukkit.mockbukkit:mockbukkit-v26.3", version = "4.121.0" }
+mockbukkit = { module = "org.mockbukkit.mockbukkit:mockbukkit-v26.3", version = "4.124.0" }
 paper-api = { module = "io.papermc.paper:paper-api", version = "26.3.build.252-stable" }
 skript = { module = "com.github.SkriptLang:Skript", version.ref = "skript" }
 
